@@ -1,0 +1,23 @@
+{
+  "name": "clickup",
+  "version": "1.0.0",
+  "description": "gets all teams from clickup",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "./node_modules/.bin/nodemon app.js"
+  },
+  "dependencies": {
+    "@adenin/cf-logger": "^1.4.0",
+    "@adenin/cf-provider": "^2.3.0",
+    "agentkeepalive": "^4.0.0",
+    "decache": "^4.5.1",
+    "got": "^9.6.0",
+    "koa": "^2.7.0",
+    "koa-bodyparser": "^4.2.1",
+    "koa-router": "^7.4.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.9"
+  }
+}
