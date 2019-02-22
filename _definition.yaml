@@ -1,7 +1,6 @@
 ConnectorTitle: ClickUp
 AccessCodeServiceEndpoint: https://app.clickup.com/api
 AccessTokenServiceEndpoint: https://api.clickup.com/api/v1/oauth/token
-ApiEndPoint: https://api.clickup.com/api/v1
 UserName: hide
 UserPassword: hide
 ClientId: required
@@ -25,6 +24,3 @@ Custom2Hint: ''
 Custom3Label: Custom Field 3
 Custom3Hint: ''
 Scopes:
-- ScopeName: api
-  ScopeDescription: API Access
-  IsDefault: false
