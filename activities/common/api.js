@@ -49,7 +49,7 @@ api.convertResponse = function (response) {
   // iterate through each issue and extract id, title, etc. into a new array
   for (let i = 0; i < teams.length; i++) {
     let raw = teams[i];
-    let item = { id: raw.id, title: raw.name, description: raw.name, link: raw.web_url, raw: raw }
+    let item = { id: raw.id, title: raw.name, description: raw.name, link: `https://app.clickup.com/${raw.id}`, raw: raw }
     items.push(item);
   }
 
