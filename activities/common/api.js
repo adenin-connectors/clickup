@@ -37,24 +37,10 @@ function api(path, opts) {
   }
 
   return got(url, opts).catch(err => {
-
     throw err;
   });
 }
-// convert response from /issues endpoint to 
-api.convertResponse = function (response) {
-  let items = [];
-  let teams = response.body.teams;
 
-  // iterate through each issue and extract id, title, etc. into a new array
-  for (let i = 0; i < teams.length; i++) {
-    let raw = teams[i];
-    let item = { id: raw.id, title: raw.name, description: raw.name, link: `https://app.clickup.com/${raw.id}`, raw: raw }
-    items.push(item);
-  }
-
-  return { items: items };
-}
 const helpers = [
   'get',
   'post',
