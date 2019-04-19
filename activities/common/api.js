@@ -4,6 +4,8 @@ const got = require('got');
 const HttpAgent = require('agentkeepalive');
 const HttpsAgent = HttpAgent.HttpsAgent;
 
+let _activity = null;
+
 function api(path, opts) {
   if (typeof path !== 'string') {
     return Promise.reject(new TypeError(`Expected \`path\` to be a string, got ${typeof path}`));
@@ -11,7 +13,7 @@ function api(path, opts) {
 
   opts = Object.assign({
     json: true,
-    token: Activity.Context.connector.token,
+    token: _activity.Context.connector.token,
     endpoint: 'https://api.clickup.com/api/v1',
     agent: {
       http: new HttpAgent(),
@@ -21,7 +23,7 @@ function api(path, opts) {
 
   opts.headers = Object.assign({
     accept: 'application/json',
-    'user-agent': 'adenin Now Assistant Connector, https://www.adenin.com/now-assistant'
+    'user-agent': 'adenin Digital Assistant Connector, https://www.adenin.com/digital-assistant'
   }, opts.headers);
 
   if (opts.token) opts.headers.Authorization = opts.token;
@@ -43,6 +45,10 @@ const helpers = [
   'head',
   'delete'
 ];
+
+api.initialize = (activity) => {
+  _activity = activity;
+};
 
 api.stream = (url, opts) => got(url, Object.assign({}, opts, {
   json: false,
